@@ -1,0 +1,170 @@
+/* ============ 1. VARIABLES (colores del logo) ============ */
+:root {
+  --navy: #0A1B3D;
+  --navy-2: #102A57;
+  --cyan: #1FC8E3;
+  --green: #2ED19A;
+  --indigo: #5B6BDF;
+  --gold: #F5B301;
+  --white: #F4F8FC;
+  --muted: #A9BAD6;
+  --radius: 18px;
+  --font-title: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ============ 2. BASE ============ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.65;
+  color: var(--white);
+  background: var(--navy);
+}
+h1, h2, h3 { font-family: var(--font-title); line-height: 1.2; margin: 0 0 .6em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--cyan); }
+h3 { font-size: 1.2rem; color: var(--white); }
+p { margin: 0 0 1em; max-width: 72ch; }
+a { color: var(--cyan); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.c-green { color: var(--green); }
+
+/* ============ 3. ENCABEZADO ============ */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding: .7rem 5%;
+  background: rgba(10, 27, 61, .94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(31, 200, 227, .25);
+}
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--white); font: 700 1.3rem var(--font-title); }
+.brand-logo { height: 48px; width: auto; object-fit: contain; }
+.nav-list { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; list-style: none; margin: 0; padding: 0; align-items: center; }
+.nav-list a { color: var(--white); text-decoration: none; font-size: .95rem; }
+.nav-list a:hover { color: var(--cyan); }
+.btn-nav { background: var(--green); color: var(--navy) !important; padding: .4rem 1rem; border-radius: 999px; font-weight: 600; }
+
+/* ============ 4. BOTONES ============ */
+.btn { display: inline-block; padding: .8rem 1.6rem; border-radius: 999px; font-weight: 600; text-decoration: none; transition: transform .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--green); color: var(--navy); }
+.btn-ghost { border: 2px solid var(--cyan); color: var(--cyan); }
+
+/* ============ 5. HERO ============ */
+.hero {
+  min-height: 85vh;
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center;
+  padding: 4rem 5%;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(31, 200, 227, .28), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(91, 107, 223, .25), transparent 40%),
+    var(--navy);
+}
+.lead { font-size: 1.15rem; color: var(--muted); }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.pills { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.pill { padding: 1rem 1.4rem; border-radius: 999px; border: 2px solid; background: rgba(255, 255, 255, .04); }
+.pill-green { border-color: var(--green); }
+.pill-blue { border-color: var(--cyan); }
+.pill-indigo { border-color: var(--indigo); }
+.pill strong { color: var(--green); }
+.pill-blue strong { color: var(--cyan); }
+.pill-indigo strong { color: #9AA6FF; }
+
+/* ============ 6. SECCIONES ============ */
+.section { padding: 5rem 5%; }
+.section.alt { background: var(--navy-2); }
+.sub { margin-top: 2.5rem; color: var(--green); }
+.intro { color: var(--muted); font-size: 1.1rem; }
+
+/* ============ 7. TARJETAS Y GRILLAS ============ */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.card {
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(31, 200, 227, .22);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+}
+.card.wide { max-width: 900px; }
+.card p:last-child { margin-bottom: 0; }
+
+/* ============ 8. ESTADÍSTICAS ============ */
+.stats { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+.stats li { padding: 1.2rem; border-left: 4px solid var(--green); background: rgba(255, 255, 255, .04); border-radius: 0 var(--radius) var(--radius) 0; }
+.stats strong { display: block; font: 700 1.9rem var(--font-title); color: var(--cyan); }
+.stats span { color: var(--muted); font-size: .95rem; }
+
+/* ============ 9. TABLA ============ */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 640px; }
+th, td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, .12); vertical-align: top; }
+th { color: var(--cyan); }
+tr.selected td { background: rgba(46, 209, 154, .12); }
+
+/* ============ 10. CHIPS ============ */
+.chips { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.chips li { padding: .45rem 1rem; border-radius: 999px; border: 1px solid var(--indigo); background: rgba(91, 107, 223, .15); font-size: .95rem; }
+
+/* ============ 11. DOFA ============ */
+.dofa ul { margin: 0; padding-left: 1.2rem; }
+.dofa li { margin-bottom: .4rem; }
+.dofa.f { border-top: 5px solid var(--green); }
+.dofa.o { border-top: 5px solid var(--cyan); }
+.dofa.d { border-top: 5px solid var(--gold); }
+.dofa.a { border-top: 5px solid var(--indigo); }
+
+/* ============ 12. PALETA ============ */
+.swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+.swatch { background: rgba(255, 255, 255, .05); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255, 255, 255, .12); }
+.chip-color { height: 90px; background: var(--c); }
+.swatch h3, .swatch p { padding: 0 1.2rem; }
+.swatch h3 { margin-top: 1rem; }
+.swatch h3 small { display: block; font: 400 .85rem var(--font-body); color: var(--muted); }
+.swatch p { color: var(--muted); font-size: .95rem; }
+
+/* ============ 13. CONTACTO Y PIE ============ */
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.site-footer { padding: 2rem 5%; text-align: center; background: #07142E; color: var(--muted); font-size: .9rem; }
+.site-footer p { margin: 0 auto; }
+
+/* ============ 14. RESPONSIVE ============ */
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .section { padding: 3.5rem 5%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+
+/* ============ 15. CÓMO FUNCIONA ============ */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; counter-reset: paso; }
+.step { counter-increment: paso; position: relative; padding: 1.4rem 1.2rem 1.2rem; border-radius: var(--radius); background: rgba(255, 255, 255, .05); border: 1px solid rgba(46, 209, 154, .35); }
+.step::before { content: counter(paso); position: absolute; top: -16px; left: 1.2rem; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--green); color: var(--navy); font: 700 1rem var(--font-title); }
+.step h4, .level h4, .prompt h4 { margin: 0 0 .4rem; font: 600 1.1rem var(--font-title); }
+.step p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+.level { border-left: 6px solid var(--cyan); }
+.level.l2 { border-left-color: var(--green); }
+.level.l3 { border-left-color: var(--indigo); }
+.level.l4 { border-left-color: var(--gold); }
+.level p { margin: 0; color: var(--muted); }
+
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.prompt.bad { border-color: rgba(245, 179, 1, .6); }
+.prompt.good { border-color: rgba(46, 209, 154, .7); }
+.prompt.bad h4 { color: var(--gold); }
+.prompt.good h4 { color: var(--green); }
+.quote { font-style: italic; padding: .8rem 1rem; border-radius: 12px; background: rgba(255, 255, 255, .07); }
+
+/* ============ 16. UBICACIÓN (mapas e imágenes) ============ */
+.location { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.figure { margin: 0; }
+.schema, .map { width: 100%; height: 360px; border-radius: var(--radius); border: 1px solid rgba(31, 200, 227, .3); display: block; }
+.map { border: 0; background: #0E2450; filter: saturate(.85); }
+.figure figcaption { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
